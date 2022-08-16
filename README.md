@@ -61,5 +61,35 @@ and `ps aux`
 - check specific Env var `printenv Last_Name` outcome `Khan`
 ###### How to make Env Variable `PERSISTENT`
 - research how to make env persistent of your `first_name`, `last_name` and `DB_HOST=mongodb://192.168.10.150:27017/posts` 10min to complete this
-- 
+
+### Multi-Server Env
+```
+Vagrant.configure("2") do |config|
+    config.vm.define "app" do |app|
+      app.vm.box = "ubuntu/bionic64"
+      app.vm.network "private_network", ip: "192.168.10.100"
+      app.vm.synced_folder ".", "/home/ubuntu/app" # change it to your home location 
+      app.vm.provision "shell", path: "environment/provision.sh", privileged: false
+                                     # provide path for your provision.sh 
+    end
   
+    config.vm.define "db" do |db|
+      db.vm.box = "ubuntu/bionic64"
+      db.vm.network "private_network", ip: "192.168.10.150"
+      
+    end
+  end
+  ```
+
+  - vagrant up
+  - vagrant status ` app` & `db` running
+  - `vagrant ssh app` `sudo apt-get update -y`
+  - `sudo apt-get upgrade -y`
+  - navigate to app folder `npm install` `npm start`
+  - ensure app is working and visible in the browser
+  - exit out of app VM
+  - vagrant ssh db
+  - `vagrant ssh db` `sudo apt-get update -y`
+  - `sudo apt-get upgrade -y`
+  - that's all for now
+  - if only one VMs is created `vagrant up app` or `vagrant up db`
