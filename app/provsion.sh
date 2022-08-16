@@ -13,5 +13,3 @@ sudo apt-get install nodejs -y
 
 # install pm2
 sudo npm install pm2 -g
-sudo apt-get update -y
-sudo apt-get upgrade -y

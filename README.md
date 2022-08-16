@@ -50,3 +50,16 @@ and `ps aux`
 - Which env is needed in order for us to deploy this app
 - `linux ubuntu 16.04 or above
 - `sudo apt-get update && sudo apt-get install yarn`
+- `nohup node app.js > /dev/null 2>&1 &`
+- use this command to run node app in the background
+
+### Linux Variable & Env Variable in Linux - Windows - Mac
+- How to check existing Env Var `env` or `printenv`
+- How to create a var in Linux `Name=Shahrukh`
+- How to check Linux Var `echo $Name`
+- Env var we have a key word called `export` command `export Last_Name=Khan`
+- check specific Env var `printenv Last_Name` outcome `Khan`
+###### How to make Env Variable `PERSISTENT`
+- research how to make env persistent of your `first_name`, `last_name` and `DB_HOST=mongodb://192.168.10.150:27017/posts` 10min to complete this
+- 
+  
